@@ -1,0 +1,24 @@
+header {
+  padding-bottom: 1rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4rem;
+  }
+}
+
+.loading {
+  align-items: center;
+  background-color: var(--primary-color-100);
+  border-radius: 10px;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  width: 100%;
+  
+}

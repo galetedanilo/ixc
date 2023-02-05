@@ -1,0 +1,23 @@
+.btn {
+  align-items: center;
+  background-color: var(--primary-color-300);
+  border: none;
+  border-radius: 8px;
+  color: var(--white-color);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.8rem;
+  height: 35px;
+  transition: all 0.3s ease 0s;
+  justify-content: center;
+  min-width: 150px;
+
+  &:hover {
+    background-color: var(--primary-color-200);
+  }
+
+  &:disabled, &:disabled:hover {
+    background-color: #579bc534;
+    cursor: default;
+  }
+}

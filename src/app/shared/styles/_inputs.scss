@@ -1,0 +1,41 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  label {
+    color: var(--white-color);
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+  }
+
+  &__input {
+    display: flex;
+    padding-top: 0.6rem;
+
+    input {
+      background-color: var(--primary-color-300);
+      border: none;
+      border-radius: 13px 0 0 13px;
+      color: var(--white-color);
+      font-size: 15px;
+      height: 50px;
+      outline: none;
+      padding: 20px;
+      width: 90%;
+    }
+
+    mat-icon {
+      align-items: center;
+      display: flex;
+      background-color: var(--primary-color-300);
+      border-radius: 0 13px 13px 0;
+      border-left: 3px solid var(--primary-color-200);
+      color: var(--primary-color-200);
+      font-size: 2rem;
+      height: 50px;
+      justify-content: center;
+      width: 50px;
+    }
+  }
+}

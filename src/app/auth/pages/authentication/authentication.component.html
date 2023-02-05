@@ -1,0 +1,59 @@
+<section>
+  <form [formGroup]="form">
+    <header>
+      <h2>Login</h2>
+    </header>
+    <div class="form-container">
+      <div class="form-control">
+        <label for="email">Usuario</label>
+        <div class="form-control__input">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="off"
+            formControlName="email"
+          />
+          <mat-icon>person</mat-icon>
+        </div>
+        <mat-error
+          *ngIf="form.get('email')?.dirty && form.get('email')?.invalid"
+        >
+          {{ getErrorMessage("email") }}
+        </mat-error>
+      </div>
+
+      <div class="form-control">
+        <label for="password">Senha</label>
+        <div class="form-control__input">
+          <input
+            type="password"
+            id="paswword"
+            name="password"
+            autocomplete="off"
+            formControlName="password"
+          />
+          <mat-icon>lock</mat-icon>
+        </div>
+        <mat-error
+          *ngIf="form.get('password')?.dirty && form.get('password')?.invalid"
+        >
+          {{ getErrorMessage("password") }}
+        </mat-error>
+      </div>
+    </div>
+    <footer>
+      <button
+        class="btn"
+        [disabled]="form.invalid"
+        (click)="handleLogin()"
+        *ngIf="!loading"
+      >
+        Entrar
+      </button>
+      <button class="btn loading" *ngIf="loading">
+        <mat-spinner [diameter]="40"></mat-spinner>
+      </button>
+    </footer>
+  </form>
+</section>

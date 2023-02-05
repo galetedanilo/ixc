@@ -1,0 +1,50 @@
+<header class="header-modal">
+  <h3>Formulario de Usuário</h3>
+</header>
+<section class="section-modal">
+  <form [formGroup]="form">
+    <div class="form-control">
+      <label for="email">User e-mail</label>
+      <div class="form-control__input">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="off"
+          formControlName="email"
+        />
+        <mat-icon>alternate_email</mat-icon>
+      </div>
+      <mat-error *ngIf="form.get('email')?.dirty && form.get('email')?.invalid">
+        {{ getErrorMessage("email") }}
+      </mat-error>
+    </div>
+
+    <div class="form-control">
+      <label for="displayName">Nome do usuário</label>
+      <div class="form-control__input">
+        <input
+          type="text"
+          id="displayName"
+          name="displayName"
+          autocomplete="off"
+          formControlName="displayName"
+        />
+        <mat-icon>person</mat-icon>
+      </div>
+      <mat-error
+        *ngIf="
+          form.get('displayName')?.dirty && form.get('displayName')?.invalid
+        "
+      >
+        {{ getErrorMessage("displayName") }}
+      </mat-error>
+    </div>
+  </form>
+</section>
+<footer class="footer-modal">
+  <button class="btn" (click)="handleCancel()">Cancelar</button>
+  <button class="btn" (click)="handleSave()" [disabled]="form.invalid">
+    Salvar
+  </button>
+</footer>

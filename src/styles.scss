@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'modals';
+@import 'inputs';
+@import 'buttons';
+
+// -------------------------------- APP palete colors ---------------------------------
+:root {
+  --primary-color-100: #a47bb9;
+  --primary-color-200: #684c77;
+  --primary-color-300: #503b5b;
+  --primary-color-400: #2e1d37;
+  --primary-color-500: #1e1623;
+
+  --white-color: #ffffff;
+  --blace-color: #000000;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--primary-color-400);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--white-color);
+  font-weight: 300;
+}
+
+// --------------------------- CSS to global custom Material -----------------------------
+
+mat-error {
+  font-size: 0.8rem;
+}
+
+mat-progress-spinner circle, mat-spinner circle {
+  stroke: var(--white-color);
+}
