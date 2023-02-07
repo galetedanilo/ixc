@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 3,
+      "email": "teste@tre.com",
+      "displayName": "Teste Novo Nome"
+    },
+    {
+      "id": 4,
+      "email": "mariaaparecida@gmail.com",
+      "displayName": "Maria Aparecida"
+    },
+    {
+      "id": 5,
+      "email": "marcia@gmail.com",
+      "displayName": "Marcia Silva"
+    }
+  ],
+  "settings": [
+    {
+      "id": 1,
+      "matter": "Uma nova mensagem",
+      "matterId": "B25HJ"
+    },
+    {
+      "id": 2,
+      "matter": "Novo cadastro de usuário",
+      "matterId": "HYT&99"
+    }
+  ],
+  "status": {
+    "job": true,
+    "ixc": true,
+    "indeCx": false
+  }
+}

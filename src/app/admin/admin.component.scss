@@ -1,8 +1,24 @@
-section {
+.container {
   display: flex;
 
   .content {
     padding: 40px;
+    overflow: auto;
     width: 100%;
   }
 }
+
+.header-admin {
+  padding-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+.section-admin-menu {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+

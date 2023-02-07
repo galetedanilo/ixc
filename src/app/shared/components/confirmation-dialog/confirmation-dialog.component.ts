@@ -11,7 +11,7 @@ import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/materia
 })
 export class ConfirmationDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
+    private dialogRef: MatDialogRef<ConfirmationDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string
   ) {}
 

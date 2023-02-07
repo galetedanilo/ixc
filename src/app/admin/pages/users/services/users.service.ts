@@ -8,7 +8,7 @@ import { UserInterface } from '../interfaces/user.interface';
 @Injectable()
 export class UsersService {
   private readonly API = environment.API;
-  private readonly resource = '/adim/users';
+  private readonly resource = '/users';
 
   private readonly URL = this.API + this.resource;
 

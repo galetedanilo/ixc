@@ -19,17 +19,16 @@ import { UsersService } from './services/users.service';
     MatDialogModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    UserModalComponent,
     UsersTableComponent,
   ],
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
+  styleUrls: ['./users.component.scss', '../../admin.component.scss'],
 })
 export class UsersComponent implements OnInit {
   users$: Observable<UserInterface[]> | undefined;
 
   constructor(
-    @SkipSelf() public dialog: MatDialog,
+    @SkipSelf() private dialog: MatDialog,
     @SkipSelf() private snackBar: MatSnackBar,
     @SkipSelf() private service: UsersService
   ) {}

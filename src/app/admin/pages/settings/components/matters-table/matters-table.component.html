@@ -1,26 +1,19 @@
 <mat-table [dataSource]="dataTable">
-  <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef>User Login</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.email }}</mat-cell>
+  <ng-container matColumnDef="matter">
+    <mat-header-cell *matHeaderCellDef>Assunto (IXC)</mat-header-cell>
+    <mat-cell *matCellDef="let data">{{ data.matter }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="displayName">
-    <mat-header-cell *matHeaderCellDef>Nome do Usuário</mat-header-cell>
+  <ng-container matColumnDef="matterId">
+    <mat-header-cell *matHeaderCellDef>Id Ação (IndeCX)</mat-header-cell>
     <mat-cell *matCellDef="let data">
-      {{ data.displayName }}
+      {{ data.matterId }}
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef class="action-column">Ações</mat-header-cell>
     <mat-cell *matCellDef="let data" class="action-column">
-      <button
-        color="primary"
-        aria-label="Editar um usuário"
-        (click)="handleEdit(data)"
-      >
-        <mat-icon>edit</mat-icon>
-      </button>
       <button
         color="warn"
         aria-label="Remover um usuário"

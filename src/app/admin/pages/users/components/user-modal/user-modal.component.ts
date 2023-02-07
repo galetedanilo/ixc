@@ -39,8 +39,8 @@ export class UserModalComponent implements OnInit {
   });
 
   constructor(
-    @SkipSelf() private builder: NonNullableFormBuilder,
     private dialogRef: MatDialogRef<UserModalComponent>,
+    @SkipSelf() private builder: NonNullableFormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: UserInterface
   ) {}
 

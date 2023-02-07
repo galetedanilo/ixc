@@ -1,1 +1,39 @@
-<p>settings works!</p>
+<header class="header-admin">
+  <h1>Configurações</h1>
+</header>
+
+<section class="section-configuration-and-status">
+  <app-jobs></app-jobs>
+  <app-status
+    *ngIf="status$ | async as status; else loadingStatus"
+    [status]="status"
+  ></app-status>
+  <ng-template #loadingStatus>
+    <div class="loading loading-status">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</section>
+
+<section class="section-admin-menu">
+  <h3>Cadastro dos assuntos</h3>
+  <button
+    class="btn"
+    (click)="handleOpenModal({ id: '', matter: '', matterId: '' })"
+  >
+    Adicionar
+  </button>
+</section>
+
+<section>
+  <app-matters-table
+    *ngIf="matters$ | async as matters; else loadingMatters"
+    [dataTable]="matters"
+    (remove)="handleDelete($event)"
+  ></app-matters-table>
+  <ng-template #loadingMatters>
+    <div class="loading loading-matters">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</section>

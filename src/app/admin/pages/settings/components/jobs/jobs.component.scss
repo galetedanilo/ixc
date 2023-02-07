@@ -1,0 +1,43 @@
+.header-jobs {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.section-jobs {
+  background-color: var(--primary-color-200);
+  border-radius: 16px;
+  height: 260px;
+  padding: 10px;
+  width: 600px;
+
+  &__icon {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    mat-icon {
+      color: var(--white-color);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__container {
+    color: var(--white-color);
+    padding: 40px 20px;
+
+    &__content {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10px;
+
+      span {
+        width: 50%;
+      }
+    }
+  }
+}

@@ -1,25 +1,27 @@
-<header>
+<header class="header-admin">
   <h1>Usuários</h1>
-  <div class="menu">
-    <h3>Cadastro dos usuários</h3>
-    <button
-      class="btn"
-      (click)="handleOpenModal({ id: '', email: '', displayName: '' })"
-    >
-      Adicionar
-    </button>
-  </div>
 </header>
+
+<section class="section-admin-menu">
+  <h3>Cadastro dos usuários</h3>
+  <button
+    class="btn"
+    (click)="handleOpenModal({ id: '', email: '', displayName: '' })"
+  >
+    Adicionar
+  </button>
+</section>
+
 <section>
   <app-users-table
     *ngIf="users$ | async as users; else loading"
-    [users]="users"
-    (editUser)="handleOpenModal($event)"
-    (removeUser)="handleDelete($event)"
+    [dataTable]="users"
+    (edit)="handleOpenModal($event)"
+    (remove)="handleDelete($event)"
   ></app-users-table>
   <ng-template #loading>
     <div class="loading">
       <mat-spinner></mat-spinner>
     </div>
   </ng-template>
- </section>
+</section>

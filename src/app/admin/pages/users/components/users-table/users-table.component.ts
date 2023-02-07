@@ -13,19 +13,19 @@ import { UserInterface } from '../../interfaces/user.interface';
   styleUrls: ['./users-table.component.scss'],
 })
 export class UsersTableComponent {
-  @Input() users: UserInterface[] = []
-  @Output() editUser = new EventEmitter();
-  @Output() removeUser = new EventEmitter();
+  @Input() dataTable: UserInterface[] = []
+  @Output() edit = new EventEmitter();
+  @Output() remove = new EventEmitter();
 
   readonly displayedColumns = ['email', 'displayName', 'actions'];
 
   constructor() {}
 
-  handleEdit(user: UserInterface): void {
-    this.editUser.emit(user);
+  handleEdit(data: UserInterface): void {
+    this.edit.emit(data);
   }
 
-  handleRemove(user: UserInterface): void {
-    this.removeUser.emit(user);
+  handleRemove(data: UserInterface): void {
+    this.remove.emit(data);
   }
 }
