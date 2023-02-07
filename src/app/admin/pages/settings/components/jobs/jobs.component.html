@@ -2,16 +2,36 @@
   <h3>Configurações do job</h3>
   <button class="btn">Executar</button>
 </header>
-<section class="section-jobs">
+<section class="section-jobs" *ngIf="jobsData.runtime; else jobsError">
   <div class="section-jobs__icon">
-    <mat-icon>settings</mat-icon>
+    <mat-icon (click)="handleJobs()">settings</mat-icon>
   </div>
   <div class="section-jobs__container">
     <div class="section-jobs__container__content">
-      <h3>Intervalo de execução:</h3><span>60 min</span>
+      <h3>Intervalo de execução:</h3>
+      <span>{{ jobsData.runtime }} min</span>
     </div>
     <div class="section-jobs__container__content">
-      <h3>Ultima execução:</h3><span>25/04/2023 09:26:33</span>
+      <h3>Ultima execução:</h3>
+      <span>{{ jobsData.lastRun }}</span>
     </div>
   </div>
 </section>
+
+<ng-template #jobsError>
+  <section class="section-jobs">
+    <div class="section-jobs__icon">
+      <mat-icon (click)="handleJobs()">settings</mat-icon>
+    </div>
+    <div class="section-jobs__container">
+      <div class="section-jobs__container__content">
+        <h3>Intervalo de execução:</h3>
+        <span class="error">error ao carregar</span>
+      </div>
+      <div class="section-jobs__container__content">
+        <h3>Ultima execução:</h3>
+        <span class="error">erro ao carregar</span>
+      </div>
+    </div>
+  </section>
+</ng-template>

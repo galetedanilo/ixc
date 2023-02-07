@@ -1,0 +1,32 @@
+<header class="header-modal">
+  <h3>Formulario de Configurações</h3>
+</header>
+<section class="section-modal">
+  <form [formGroup]="form">
+    <div class="form-control">
+      <label for="email">Tempo do intervalo de execução</label>
+      <div class="form-control__input">
+        <input
+          type="number"
+          id="runtime"
+          name="runtime"
+          autocomplete="off"
+          placeholder="Informe o tempo em minutos"
+          formControlName="runtime"
+        />
+        <mat-icon>schedule</mat-icon>
+      </div>
+      <mat-error *ngIf="form.get('runtime')?.dirty && form.get('runtime')?.invalid">
+        {{ getErrorMessage("runtime") }}
+      </mat-error>
+    </div>
+  </form>
+</section>
+<footer class="footer-modal">
+  <button class="btn" (click)="handleCancel()">Cancelar</button>
+  <button class="btn" (click)="handleSave()" [disabled]="form.invalid">
+    Salvar
+  </button>
+</footer>
+
+

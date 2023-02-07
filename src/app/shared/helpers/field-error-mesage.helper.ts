@@ -19,6 +19,20 @@ export const getErrorMessage = (field: AbstractControl<any | any> | null) => {
     return `Tamanho máximo precisa ser de ${requiredLength} caracteres`;
   }
 
+  if (field?.hasError('min')) {
+    const requiredLength = field.errors
+      ? field.errors['min']['min']
+      : 0;
+    return `Valor mínimo precisa ser de ${requiredLength}`;
+  }
+
+  if (field?.hasError('max')) {
+    const requiredLength = field.errors
+      ? field.errors['max']['max']
+      : 9999;
+    return `Valor máximo precisa ser de ${requiredLength}`;
+  }
+
   if (field?.hasError('email')) {
     return 'Digite um e-mail valido';
   }

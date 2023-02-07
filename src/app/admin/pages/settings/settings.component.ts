@@ -5,11 +5,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { catchError, Observable, of } from 'rxjs';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
-import { JobsComponent } from './components/jobs/jobs.component';
 
+import { JobsModalComponent } from './components/jobs-modal/jobs-modal.component';
+import { JobsComponent } from './components/jobs/jobs.component';
 import { MatterModalComponent } from './components/matter-modal/matter-modal.component';
 import { MattersTableComponent } from './components/matters-table/matters-table.component';
 import { StatusComponent } from './components/status/status.component';
+import { JobsInterface } from './interfaces/jobs.interface';
 import { MatterInterface } from './interfaces/matter.interface';
 import { StatusInterface } from './interfaces/status.interface';
 import { SettingService } from './services/setting.service';
@@ -24,7 +26,7 @@ import { SettingService } from './services/setting.service';
     MatProgressSpinnerModule,
     MattersTableComponent,
     StatusComponent,
-    JobsComponent
+    JobsComponent,
   ],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss', '../../admin.component.scss'],
@@ -32,6 +34,7 @@ import { SettingService } from './services/setting.service';
 export class SettingsComponent {
   matters$: Observable<MatterInterface[]> | undefined;
   status$: Observable<StatusInterface> | undefined;
+  jobs$: Observable<JobsInterface> | undefined;
 
   constructor(
     @SkipSelf() public dialog: MatDialog,
@@ -42,6 +45,7 @@ export class SettingsComponent {
   ngOnInit(): void {
     this.getMetters();
     this.getStatus();
+    this.getJobs();
   }
 
   handleOpenModal(data: MatterInterface): void {
@@ -52,7 +56,17 @@ export class SettingsComponent {
 
     dialogRef.afterClosed().subscribe((result: MatterInterface) => {
       if (result) {
-        this.save(result);
+        this.saveMatter(result);
+      }
+    });
+  }
+
+  handleJobsModal(): void {
+    const dialogRef = this.dialog.open(JobsModalComponent);
+
+    dialogRef.afterClosed().subscribe((result: JobsInterface) => {
+      if (result) {
+        this.saveJobs(result);
       }
     });
   }
@@ -64,7 +78,7 @@ export class SettingsComponent {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.remove(data);
+        this.removeMatter(data);
       }
     });
   }
@@ -91,8 +105,20 @@ export class SettingsComponent {
     );
   }
 
-  private save(data: MatterInterface): void {
-    this.service.save(data).subscribe({
+  private getJobs(): void {
+    this.jobs$ = this.service.getJobs().pipe(
+      catchError((_error) => {
+        this.showSnackBar('Erro a carregar as configurações do job.');
+        return of({
+          runtime: undefined,
+          lastRun: undefined,
+        });
+      })
+    );
+  }
+
+  private saveMatter(data: MatterInterface): void {
+    this.service.saveMatter(data).subscribe({
       next: () => {
         this.getMetters();
         this.showSnackBar('Assunto salvo com sucesso!');
@@ -103,8 +129,20 @@ export class SettingsComponent {
     });
   }
 
-  private remove(data: MatterInterface): void {
-    this.service.delete(data.id).subscribe({
+  private saveJobs(data: JobsInterface): void {
+    this.service.saveJobs(data).subscribe({
+      next: () => {
+        this.getMetters();
+        this.showSnackBar('Configurações do job salva com sucesso!');
+      },
+      error: () => {
+        this.showSnackBar('Erro ao salvar configurações do job!');
+      },
+    });
+  }
+
+  private removeMatter(data: MatterInterface): void {
+    this.service.deleteMatter(data.id).subscribe({
       next: () => {
         this.getMetters();
         this.showSnackBar('Assunto removido com sucesso!');

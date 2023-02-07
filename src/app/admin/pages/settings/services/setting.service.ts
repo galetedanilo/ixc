@@ -4,6 +4,7 @@ import { first, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { MatterInterface } from '../interfaces/matter.interface';
+import { JobsInterface } from '../interfaces/jobs.interface';
 import { StatusInterface } from '../interfaces/status.interface';
 
 @Injectable()
@@ -26,17 +27,27 @@ export class SettingService {
       .pipe(first());
   }
 
-  save(record: Partial<MatterInterface>) {
-    return this.create(record);
+  getJobs(): Observable<JobsInterface> {
+    //ToDo: colocar a URL correta
+    return this.httpClient
+      .get<JobsInterface>(`${this.API}/runtime`)
+      .pipe(first());
   }
 
-  delete(id: string) {
-    return this.httpClient.delete(`${this.URL}/${id}`).pipe(first());
-  }
-
-  private create(record: Partial<MatterInterface>) {
+  saveMatter(record: Partial<MatterInterface>) {
     return this.httpClient
       .post<MatterInterface>(this.URL, record)
       .pipe(first());
+  }
+
+  saveJobs(record: Partial<JobsInterface>) {
+    //ToDo: colocar a URL correta
+    return this.httpClient
+      .post<JobsInterface>(`${this.API}/runtime`, record)
+      .pipe(first());
+  }
+
+  deleteMatter(id: string) {
+    return this.httpClient.delete(`${this.URL}/${id}`).pipe(first());
   }
 }

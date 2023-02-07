@@ -4,10 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-sidenav',
+  selector: 'app-side-nav',
   standalone: true,
   imports: [CommonModule, RouterModule, MatIconModule],
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss'],
+  templateUrl: './side-nav.component.html',
+  styleUrls: ['./side-nav.component.scss'],
 })
-export class SidenavComponent {}
+export class SideNavComponent {}
