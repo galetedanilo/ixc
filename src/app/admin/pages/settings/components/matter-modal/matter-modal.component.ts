@@ -1,14 +1,10 @@
-import { Component, Inject, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  Validators,
-  NonNullableFormBuilder,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { getErrorMessage } from 'src/app/shared/helpers/field-error-mesage.helper';
+import { Component, Inject, SkipSelf } from '@angular/core';
+import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { getErrorMessage } from 'src/app/shared/helpers/field-error-mesage.helper';
 
 @Component({
   selector: 'app-matter-modal',
@@ -20,7 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
   ],
   templateUrl: './matter-modal.component.html',
-  styleUrls: ['./matter-modal.component.scss'],
 })
 export class MatterModalComponent {
   form = this.builder.group({

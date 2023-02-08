@@ -34,7 +34,7 @@
   </button>
 </section>
 
-<section>
+<section class="section-admin-table">
   <app-matters-table
     *ngIf="matters$ | async as matters; else loadingMatters"
     [dataTable]="matters"

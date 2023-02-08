@@ -32,5 +32,34 @@
     "job": true,
     "ixc": true,
     "indeCx": false
-  }
+  },
+  "dashboard": [
+    {
+      "date": "12/12/2022",
+      "time": "12:00",
+      "matter": "Mensagem de text",
+      "matterId": "I22JK5BR",
+      "email": "teste@test.com.br",
+      "isManual": true,
+      "displayName": "Fulano da Silva"
+    },
+    {
+      "date": "12/12/2022",
+      "time": "12:00",
+      "matter": "Mensagem de text",
+      "matterId": "I22JK5BR",
+      "email": "teste@test.com.br",
+      "isManual": true,
+      "displayName": "Fulano da Silva"
+    },
+    {
+      "date": "12/12/2022",
+      "time": "12:00",
+      "matter": "Mensagem de text",
+      "matterId": "I22JK5BR",
+      "email": "teste@test.com.br",
+      "isManual": true,
+      "displayName": "Fulano da Silva"
+    }
+  ]
 }

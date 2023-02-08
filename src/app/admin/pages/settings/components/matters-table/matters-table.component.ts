@@ -17,8 +17,6 @@ export class MattersTableComponent {
 
   readonly displayedColumns = ['matter', 'matterId', 'actions'];
 
-  constructor() {}
-
   handleRemove(data: MatterInterface): void {
     this.remove.emit(data);
   }

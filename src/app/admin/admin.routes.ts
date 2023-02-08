@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { DashboardService } from './pages/dashboard/services/dashboard.service';
 import { SettingService } from './pages/settings/services/setting.service';
 import { UsersService } from './pages/users/services/users.service';
 
@@ -11,6 +12,7 @@ export const ADMIN_ROUTES: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {
         path: 'dashboard',
+        providers: [DashboardService],
         loadComponent: () =>
           import('./pages/dashboard/dashboard.component').then(
             (c) => c.DashboardComponent

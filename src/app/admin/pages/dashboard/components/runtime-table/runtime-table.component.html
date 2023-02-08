@@ -1,0 +1,46 @@
+<h3>Ultima execuções</h3>
+<mat-table [dataSource]="dataTable">
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
+    <mat-cell *matCellDef="let data">{{ data.date }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="time">
+    <mat-header-cell *matHeaderCellDef>Horário</mat-header-cell>
+    <mat-cell *matCellDef="let data">{{ data.time }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="matter">
+    <mat-header-cell *matHeaderCellDef>Assunto</mat-header-cell>
+    <mat-cell *matCellDef="let data">{{ data.matter }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef>Usuário</mat-header-cell>
+    <mat-cell *matCellDef="let data">{{ data.email }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="matterId">
+    <mat-header-cell *matHeaderCellDef>ID IndeCX</mat-header-cell>
+    <mat-cell *matCellDef="let data">
+      {{ data.matterId }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="isManual">
+    <mat-header-cell *matHeaderCellDef>Manual?</mat-header-cell>
+    <mat-cell *matCellDef="let data">
+      {{ data.isManual ? 'Sim' : 'Não' }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="displayName">
+    <mat-header-cell *matHeaderCellDef>Dispardo por</mat-header-cell>
+    <mat-cell *matCellDef="let data">
+      {{ data.displayName }}
+    </mat-cell>
+  </ng-container>
+  
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

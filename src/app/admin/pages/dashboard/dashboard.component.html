@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+
+<section class="section-admin-table">
+  <app-runtime-table
+    *ngIf="runtime$ | async as runtime; else loadingRuntime"
+    [dataTable]="runtime"
+  ></app-runtime-table>
+  <ng-template #loadingRuntime>
+    <div class="loading loading-runtime">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</section>

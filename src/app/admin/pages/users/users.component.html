@@ -12,7 +12,7 @@
   </button>
 </section>
 
-<section>
+<section class="section-admin-table">
   <app-users-table
     *ngIf="users$ | async as users; else loading"
     [dataTable]="users"
