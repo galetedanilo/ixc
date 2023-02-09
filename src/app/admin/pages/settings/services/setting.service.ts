@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { MatterInterface } from '../interfaces/matter.interface';
 import { JobsInterface } from '../interfaces/jobs.interface';
 import { StatusInterface } from '../interfaces/status.interface';
+import { IndeCXInterface } from '../interfaces/inde-cx.interface';
 
 @Injectable()
 export class SettingService {
@@ -31,6 +32,13 @@ export class SettingService {
     //ToDo: colocar a URL correta
     return this.httpClient
       .get<JobsInterface>(`${this.API}/runtime`)
+      .pipe(first());
+  }
+
+  getIndeCX(): Observable<IndeCXInterface[]> {
+    //ToDo: colocar a URL correta
+    return this.httpClient
+      .get<IndeCXInterface[]>(`${this.API}/indeCX`)
       .pipe(first());
   }
 

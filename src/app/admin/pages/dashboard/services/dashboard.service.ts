@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { JobsInfoInterface } from '../interfaces/jobs-info.interface';
 
 import { RuntimeInterface } from '../interfaces/runtime.interface';
 
@@ -25,10 +26,10 @@ export class DashboardService {
   //     .pipe(first());
   // }
 
-  // getJobs(): Observable<JobsInterface> {
-  //   //ToDo: colocar a URL correta
-  //   return this.httpClient
-  //     .get<JobsInterface>(`${this.API}/runtime`)
-  //     .pipe(first());
-  // }
+  getJobsInfo(): Observable<JobsInfoInterface> {
+    //ToDo: colocar a URL correta
+    return this.httpClient
+      .get<JobsInfoInterface>(`${this.API}/jobsinfo`)
+      .pipe(first());
+  }
 }

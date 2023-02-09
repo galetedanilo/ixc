@@ -61,5 +61,43 @@
       "isManual": true,
       "displayName": "Fulano da Silva"
     }
+  ],
+  "jobsinfo": {
+    "status": true,
+    "lastRun": "12/12/2023 14:20",
+    "dataTable": [
+      {
+        "date": "12/12/2023",
+        "time": "14:00",
+        "amount": 5,
+        "isManual": true
+      },
+      {
+        "date": "12/12/2023",
+        "time": "11:25",
+        "amount": 15,
+        "isManual": false
+      },
+      {
+        "date": "12/12/2023",
+        "time": "14:00",
+        "amount": 5,
+        "isManual": true
+      },
+      {
+        "date": "12/12/2023",
+        "time": "14:00",
+        "amount": 5,
+        "isManual": false
+      }
+    ]
+  },
+  "runtime": {
+    "runtime": 85
+  },
+  "indeCX": [
+    { "name": "Y2349D" },
+    { "name": "F8F9FW0" },
+    { "name": "9FUIFFW9" }
   ]
 }

@@ -1,0 +1,41 @@
+.header-jobs-info {
+  padding-bottom: 1.5rem;
+}
+
+.section-jobs-info {
+  background-color: var(--primary-color-200);
+  border-radius: 15px;
+  padding: 20px;
+
+  &__container {
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+
+    h4 {
+      font-weight: 400;
+    }
+
+    h4,
+    h5 {
+      margin-right: 15px;
+    }
+
+    &__content {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  &__table {
+    border: 2px solid var(--primary-color-500);
+    height: 200px;
+    overflow: auto;
+  }
+}

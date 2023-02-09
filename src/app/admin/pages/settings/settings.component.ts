@@ -11,6 +11,7 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { MatterModalComponent } from './components/matter-modal/matter-modal.component';
 import { MattersTableComponent } from './components/matters-table/matters-table.component';
 import { StatusComponent } from './components/status/status.component';
+import { IndeCXInterface } from './interfaces/inde-cx.interface';
 import { JobsInterface } from './interfaces/jobs.interface';
 import { MatterInterface } from './interfaces/matter.interface';
 import { StatusInterface } from './interfaces/status.interface';
@@ -36,6 +37,8 @@ export class SettingsComponent {
   status$: Observable<StatusInterface> | undefined;
   jobs$: Observable<JobsInterface> | undefined;
 
+  private indeCX: IndeCXInterface[] = [];
+
   constructor(
     @SkipSelf() public dialog: MatDialog,
     @SkipSelf() private snackBar: MatSnackBar,
@@ -46,12 +49,13 @@ export class SettingsComponent {
     this.getMetters();
     this.getStatus();
     this.getJobs();
+    this.getIndeCX();
   }
 
-  handleOpenModal(data: MatterInterface): void {
+  handleOpenModal(): void {
     const dialogRef = this.dialog.open(MatterModalComponent, {
       disableClose: true,
-      data,
+      data: this.indeCX,
     });
 
     dialogRef.afterClosed().subscribe((result: MatterInterface) => {
@@ -117,6 +121,17 @@ export class SettingsComponent {
     );
   }
 
+  private getIndeCX(): void {
+    this.service.getIndeCX().subscribe({
+      next: (data: IndeCXInterface[]) => {
+        this.indeCX = data;
+      },
+      error: () => {
+        this.showSnackBar('Erro ao carregar IndeCX.');
+      },
+    });
+  }
+
   private saveMatter(data: MatterInterface): void {
     this.service.saveMatter(data).subscribe({
       next: () => {
@@ -132,7 +147,7 @@ export class SettingsComponent {
   private saveJobs(data: JobsInterface): void {
     this.service.saveJobs(data).subscribe({
       next: () => {
-        this.getMetters();
+        this.getJobs();
         this.showSnackBar('Configurações do job salva com sucesso!');
       },
       error: () => {

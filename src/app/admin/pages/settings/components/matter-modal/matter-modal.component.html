@@ -6,16 +6,21 @@
     <div class="form-control">
       <label for="email">Id ação(IndeCX)</label>
       <div class="form-control__input">
-        <input
-          type="text"
+        <select
           id="matterId"
           name="matterId"
           autocomplete="off"
           formControlName="matterId"
-        />
+        >
+          <option *ngFor="let indeCX of data">
+            {{ indeCX.name }}
+          </option>
+        </select>
         <mat-icon>key</mat-icon>
       </div>
-      <mat-error *ngIf="form.get('matterId')?.dirty && form.get('matterId')?.invalid">
+      <mat-error
+        *ngIf="form.get('matterId')?.dirty && form.get('matterId')?.invalid"
+      >
         {{ getErrorMessage("matterId") }}
       </mat-error>
     </div>
@@ -31,7 +36,9 @@
         />
         <mat-icon>notes</mat-icon>
       </div>
-      <mat-error *ngIf="form.get('matter')?.dirty && form.get('matter')?.invalid">
+      <mat-error
+        *ngIf="form.get('matter')?.dirty && form.get('matter')?.invalid"
+      >
         {{ getErrorMessage("matter") }}
       </mat-error>
     </div>
@@ -43,4 +50,3 @@
     Salvar
   </button>
 </footer>
-
