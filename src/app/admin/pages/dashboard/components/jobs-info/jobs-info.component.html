@@ -5,11 +5,7 @@
   <div class="section-jobs-info__container">
     <div class="section-jobs-info__container__content">
       <h4>Status:</h4>
-      <span
-        class="dot"
-        [ngClass]="jobsInfo.status ? 'active' : 'inative'"
-      ></span>
-      <span>{{ jobsInfo.status ? "Ativo" : "Inativo" }}</span>
+      <app-status [status]="jobsInfo.status"></app-status>
     </div>
     <div class="section-jobs-info__container__content">
       <h5>Última execução:</h5>

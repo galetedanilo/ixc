@@ -1,0 +1,23 @@
+<header class="header-status-info">
+  <h3>Status dos sistemas</h3>
+</header>
+<section class="section-status-info">
+  <div class="section-status-info__container">
+    <h2>Job</h2>
+    <div class="section-status-info__container__status">
+      <app-status [status]="statusData.job"></app-status>
+    </div>
+  </div>
+  <div class="section-status-info__container">
+    <h2>IXC</h2>
+    <div class="section-status-info__container__status">
+      <app-status [status]="statusData.ixc"></app-status>
+    </div>
+  </div>
+  <div class="section-status-info__container">
+    <h2>IndeCX</h2>
+    <div class="section-status-info__container__status">
+      <app-status [status]="statusData.indeCx"></app-status>
+    </div>
+  </div>
+</section>

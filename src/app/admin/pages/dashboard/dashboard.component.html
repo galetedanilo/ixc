@@ -2,16 +2,46 @@
   <h1>Dashboard</h1>
 </header>
 
-<section class="section-admin-jobs-info">
-  <app-jobs-info
-    *ngIf="jobsInfo$ | async as jobsInfo; else loadingJobsInfo"
-    [jobsInfo]="jobsInfo"
-  ></app-jobs-info>
-  <ng-template #loadingJobsInfo>
-    <div class="loading loading-jobs-info">
-      <mat-spinner></mat-spinner>
-    </div>
-  </ng-template>
+<section class="section-system-and-jobs-info">
+  <section class="section-system-and-jobs-info__container">
+    <app-jobs-info
+      *ngIf="jobsInfo$ | async as jobsInfo; else loadingJobsInfo"
+      [jobsInfo]="jobsInfo"
+    ></app-jobs-info>
+    <ng-template #loadingJobsInfo>
+      <div class="loading loading-jobs-info">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+  </section>
+
+  <section class="section-system-and-jobs-info__container">
+    <header class="header-system-info">
+      <h3>Informações dos sistemas</h3>
+    </header>
+    <section class="section-system-info">
+      <app-ixc-cx-info
+        *ngIf="ixc$ | async as ixc; else loadingIXC"
+        title="IXC"
+        [data]="ixc"
+      ></app-ixc-cx-info>
+      <ng-template #loadingIXC>
+        <div class="loading loading-ixc-cx-info">
+          <mat-spinner></mat-spinner>
+        </div>
+      </ng-template>
+      <app-ixc-cx-info
+        *ngIf="indeCX$ | async as indeCX; else loadingIndeCX"
+        title="IndeCX"
+        [data]="indeCX"
+      ></app-ixc-cx-info>
+      <ng-template #loadingIndeCX>
+        <div class="loading loading-ixc-cx-info">
+          <mat-spinner></mat-spinner>
+        </div>
+      </ng-template>
+    </section>
+  </section>
 </section>
 
 <section class="section-admin-table">

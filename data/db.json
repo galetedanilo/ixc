@@ -26,6 +26,16 @@
       "id": 2,
       "matter": "Novo cadastro de usuário",
       "matterId": "HYT&99"
+    },
+    {
+      "id": 3,
+      "matter": "Nova mensagem",
+      "matterId": "F8F9FW0"
+    },
+    {
+      "id": 4,
+      "matter": "Pela noite",
+      "matterId": "F8F9FW0"
     }
   ],
   "status": {
@@ -93,11 +103,27 @@
     ]
   },
   "runtime": {
-    "runtime": 85
+    "runtime": 43
   },
   "indeCX": [
-    { "name": "Y2349D" },
-    { "name": "F8F9FW0" },
-    { "name": "9FUIFFW9" }
-  ]
+    {
+      "name": "Y2349D"
+    },
+    {
+      "name": "F8F9FW0"
+    },
+    {
+      "name": "9FUIFFW9"
+    }
+  ],
+  "indeCXInfo": {
+    "status": true,
+    "lastRun": "12/12/2023 14:20",
+    "numberErrors": 5
+  },
+  "indeIxcInfo": {
+    "status": false,
+    "lastRun": "12/12/2023 14:20",
+    "numberErrors": 16
+  }
 }

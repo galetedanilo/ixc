@@ -1,15 +1,11 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { getErrorMessage } from 'src/app/shared/helpers/field-error-mesage.helper';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { getErrorMessage } from 'src/app/shared/helpers/field-error-mesage.helper';
+
 import { MatterModalComponent } from '../matter-modal/matter-modal.component';
 
 @Component({
@@ -25,7 +21,12 @@ import { MatterModalComponent } from '../matter-modal/matter-modal.component';
 })
 export class JobsModalComponent {
   form = new FormGroup({
-    runtime: new FormControl('', [Validators.required, Validators.maxLength(4), Validators.max(9999), Validators.min(0)]),
+    runtime: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(4),
+      Validators.max(9999),
+      Validators.min(0),
+    ]),
   });
 
   constructor(private dialogRef: MatDialogRef<MatterModalComponent>) {}

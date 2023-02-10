@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JobsComponent } from './jobs.component';
+import { IxcCxInfoComponent } from './ixc-cx-info.component';
 
-describe('JobsComponent', () => {
-  let component: JobsComponent;
-  let fixture: ComponentFixture<JobsComponent>;
+describe('IxcCxInfoComponent', () => {
+  let component: IxcCxInfoComponent;
+  let fixture: ComponentFixture<IxcCxInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ JobsComponent ]
+      imports: [ IxcCxInfoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JobsComponent);
+    fixture = TestBed.createComponent(IxcCxInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

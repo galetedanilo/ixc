@@ -6,15 +6,15 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { catchError, Observable, of } from 'rxjs';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 
+import { JobsInfoComponent } from './components/jobs-info/jobs-info.component';
 import { JobsModalComponent } from './components/jobs-modal/jobs-modal.component';
-import { JobsComponent } from './components/jobs/jobs.component';
 import { MatterModalComponent } from './components/matter-modal/matter-modal.component';
 import { MattersTableComponent } from './components/matters-table/matters-table.component';
-import { StatusComponent } from './components/status/status.component';
+import { StatusInfoComponent } from './components/status-info/status-info.component';
 import { IndeCXInterface } from './interfaces/inde-cx.interface';
-import { JobsInterface } from './interfaces/jobs.interface';
+import { JobsInfoInterface } from './interfaces/jobs-info.interface';
 import { MatterInterface } from './interfaces/matter.interface';
-import { StatusInterface } from './interfaces/status.interface';
+import { StatusInfoInterface } from './interfaces/status-info.interface';
 import { SettingService } from './services/setting.service';
 
 @Component({
@@ -26,16 +26,16 @@ import { SettingService } from './services/setting.service';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MattersTableComponent,
-    StatusComponent,
-    JobsComponent,
+    StatusInfoComponent,
+    JobsInfoComponent,
   ],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss', '../../admin.component.scss'],
 })
 export class SettingsComponent {
   matters$: Observable<MatterInterface[]> | undefined;
-  status$: Observable<StatusInterface> | undefined;
-  jobs$: Observable<JobsInterface> | undefined;
+  statusInfo$: Observable<StatusInfoInterface> | undefined;
+  jobsInfo$: Observable<JobsInfoInterface> | undefined;
 
   private indeCX: IndeCXInterface[] = [];
 
@@ -47,12 +47,12 @@ export class SettingsComponent {
 
   ngOnInit(): void {
     this.getMetters();
-    this.getStatus();
-    this.getJobs();
+    this.getStatusInfo();
+    this.getJobsInfo();
     this.getIndeCX();
   }
 
-  handleOpenModal(): void {
+  handleMatterModal(): void {
     const dialogRef = this.dialog.open(MatterModalComponent, {
       disableClose: true,
       data: this.indeCX,
@@ -65,12 +65,12 @@ export class SettingsComponent {
     });
   }
 
-  handleJobsModal(): void {
+  handleJobsInfoModal(): void {
     const dialogRef = this.dialog.open(JobsModalComponent);
 
-    dialogRef.afterClosed().subscribe((result: JobsInterface) => {
+    dialogRef.afterClosed().subscribe((result: JobsInfoInterface) => {
       if (result) {
-        this.saveJobs(result);
+        this.saveJobsInfo(result);
       }
     });
   }
@@ -96,8 +96,8 @@ export class SettingsComponent {
     );
   }
 
-  private getStatus(): void {
-    this.status$ = this.service.getStatus().pipe(
+  private getStatusInfo(): void {
+    this.statusInfo$ = this.service.getStatusInfo().pipe(
       catchError((_error) => {
         this.showSnackBar('Erro ao carregar os status.');
         return of({
@@ -109,8 +109,8 @@ export class SettingsComponent {
     );
   }
 
-  private getJobs(): void {
-    this.jobs$ = this.service.getJobs().pipe(
+  private getJobsInfo(): void {
+    this.jobsInfo$ = this.service.getJobsInfo().pipe(
       catchError((_error) => {
         this.showSnackBar('Erro a carregar as configurações do job.');
         return of({
@@ -144,10 +144,10 @@ export class SettingsComponent {
     });
   }
 
-  private saveJobs(data: JobsInterface): void {
-    this.service.saveJobs(data).subscribe({
+  private saveJobsInfo(data: JobsInfoInterface): void {
+    this.service.saveJobsInfo(data).subscribe({
       next: () => {
-        this.getJobs();
+        this.getJobsInfo();
         this.showSnackBar('Configurações do job salva com sucesso!');
       },
       error: () => {

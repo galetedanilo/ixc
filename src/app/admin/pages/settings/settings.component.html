@@ -2,23 +2,23 @@
   <h1>Configurações</h1>
 </header>
 
-<section class="section-configuration-and-status">
-  <app-jobs
-    (jobs)="handleJobsModal()"
-    *ngIf="jobs$ | async as jobs; else loadingJobs"
-    [jobsData]="jobs"
-  ></app-jobs>
-  <ng-template #loadingJobs>
-    <div class="loading loading-jobs">
+<section class="section-jobs-and-status-info">
+  <app-jobs-info
+    (jobsInfo)="handleJobsInfoModal()"
+    *ngIf="jobsInfo$ | async as jobsInfo; else loadingJobsInfo"
+    [jobsData]="jobsInfo"
+  ></app-jobs-info>
+  <ng-template #loadingJobsInfo>
+    <div class="loading loading-jobs-and-status-info">
       <mat-spinner></mat-spinner>
     </div>
   </ng-template>
-  <app-status
-    *ngIf="status$ | async as status; else loadingStatus"
-    [status]="status"
-  ></app-status>
-  <ng-template #loadingStatus>
-    <div class="loading loading-status">
+  <app-status-info
+    *ngIf="statusInfo$ | async as statusInfo; else loadingStatusInfo"
+    [statusData]="statusInfo"
+  ></app-status-info>
+  <ng-template #loadingStatusInfo>
+    <div class="loading loading-jobs-and-status-info">
       <mat-spinner></mat-spinner>
     </div>
   </ng-template>
@@ -28,7 +28,7 @@
   <h3>Cadastro dos assuntos</h3>
   <button
     class="btn"
-    (click)="handleOpenModal()"
+    (click)="handleMatterModal()"
   >
     Adicionar
   </button>

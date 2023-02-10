@@ -1,0 +1,6 @@
+<span class="status-error" *ngIf="status === undefined; else statusHasValue">erro ao carregar</span>
+
+<ng-template #statusHasValue>
+  <span class="dot" [ngClass]="status ? 'status-active' : 'status-inative'"></span
+  >{{ status ? "Ativo" : "Inativo" }}
+</ng-template>

@@ -1,15 +1,11 @@
-.section-configuration-and-status {
+.section-jobs-and-status-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 40px;
 }
 
-.loading-status {
-  height: 315px;
-}
-
-.loading-jobs {
+.loading-jobs-and-status-info {
   height: 315px;
 }
 

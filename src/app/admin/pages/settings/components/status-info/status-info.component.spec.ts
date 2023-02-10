@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IxcInfoComponent } from './ixc-info.component';
+import { StatusInfoComponent } from './status-info.component';
 
-describe('IxcInfoComponent', () => {
-  let component: IxcInfoComponent;
-  let fixture: ComponentFixture<IxcInfoComponent>;
+describe('StatusInfoComponent', () => {
+  let component: StatusInfoComponent;
+  let fixture: ComponentFixture<StatusInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ IxcInfoComponent ]
+      imports: [ StatusInfoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(IxcInfoComponent);
+    fixture = TestBed.createComponent(StatusInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

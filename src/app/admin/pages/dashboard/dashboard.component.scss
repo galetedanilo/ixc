@@ -1,7 +1,21 @@
-
-.section-admin-jobs-info {
-  max-width: 790px;
+.section-system-and-jobs-info {
+  display: flex;
+  justify-content: space-between;
   padding-bottom: 2rem;
+
+  &__container {
+    width: 700px;
+    max-width: 790px;
+  }
+}
+
+.header-system-info {
+  padding-bottom: 1.5rem;
+}
+
+.section-system-info {
+  display: flex;
+  justify-content: space-between;
 }
 
 
@@ -10,6 +24,10 @@
 }
 
 .loading-jobs-info {
-  height: 40vh;
+  height: 330px;
   max-width: 790px;
+}
+
+.loading-ixc-cx-info {
+  height: 280px;
 }

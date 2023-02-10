@@ -1,0 +1,17 @@
+<section class="section-ixc-cx-info">
+  <div class="section-ixc-cx-info__title">
+    <h2>{{ title }}</h2>
+    <app-status [status]="data.status"></app-status>
+  </div>
+  <div class="section-ixc-cx-info_container">
+    <div class="section-ixc-cx-info__container__content">
+      <h4>Ultima exe. com sucesso:</h4>
+      <span>{{ data.lastRun }}</span>
+    </div>
+    <div class="section-ixc-cx-info__container__content">
+      <h4>Qunatidade de erros:</h4>
+      <span>{{ data.numberErrors }}</span>
+    </div>
+  </div>
+</section>
+

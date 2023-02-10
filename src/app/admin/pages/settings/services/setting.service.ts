@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { first, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-import { MatterInterface } from '../interfaces/matter.interface';
-import { JobsInterface } from '../interfaces/jobs.interface';
-import { StatusInterface } from '../interfaces/status.interface';
 import { IndeCXInterface } from '../interfaces/inde-cx.interface';
+import { JobsInfoInterface } from '../interfaces/jobs-info.interface';
+import { MatterInterface } from '../interfaces/matter.interface';
+import { StatusInfoInterface } from '../interfaces/status-info.interface';
 
 @Injectable()
 export class SettingService {
@@ -21,17 +21,17 @@ export class SettingService {
     return this.httpClient.get<MatterInterface[]>(this.URL).pipe(first());
   }
 
-  getStatus(): Observable<StatusInterface> {
+  getStatusInfo(): Observable<StatusInfoInterface> {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .get<StatusInterface>(`${this.API}/status`)
+      .get<StatusInfoInterface>(`${this.API}/status`)
       .pipe(first());
   }
 
-  getJobs(): Observable<JobsInterface> {
+  getJobsInfo(): Observable<JobsInfoInterface> {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .get<JobsInterface>(`${this.API}/runtime`)
+      .get<JobsInfoInterface>(`${this.API}/runtime`)
       .pipe(first());
   }
 
@@ -48,10 +48,10 @@ export class SettingService {
       .pipe(first());
   }
 
-  saveJobs(record: Partial<JobsInterface>) {
+  saveJobsInfo(record: Partial<JobsInfoInterface>) {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .post<JobsInterface>(`${this.API}/runtime`, record)
+      .post<JobsInfoInterface>(`${this.API}/runtime`, record)
       .pipe(first());
   }
 

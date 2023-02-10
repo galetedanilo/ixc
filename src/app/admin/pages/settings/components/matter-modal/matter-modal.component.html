@@ -12,7 +12,7 @@
           autocomplete="off"
           formControlName="matterId"
         >
-          <option *ngFor="let indeCX of data">
+          <option *ngFor="let indeCX of data" [ngValue]="indeCX.name">
             {{ indeCX.name }}
           </option>
         </select>

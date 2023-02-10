@@ -43,7 +43,6 @@ export class MatterModalComponent {
   }
 
   handleSave(): void {
-    console.log(this.form.value)
-    //this.dialogRef.close(this.form.value);
+    this.dialogRef.close(this.form.value);
   }
 }

@@ -3,11 +3,13 @@ import { Component, OnInit, SkipSelf } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { catchError, Observable, of } from 'rxjs';
-import { JobsInfoComponent } from './components/jobs-info/jobs-info.component';
 
+import { IxcCxInfoComponent } from './components/ixc-cx-info/ixc-cx-info.component';
+import { JobsInfoComponent } from './components/jobs-info/jobs-info.component';
 import { RuntimeTableComponent } from './components/runtime-table/runtime-table.component';
 import { JobsInfoInterface } from './interfaces/jobs-info.interface';
 import { RuntimeInterface } from './interfaces/runtime.interface';
+import { SystemInfoInterface } from './interfaces/system-info.interface';
 import { DashboardService } from './services/dashboard.service';
 
 @Component({
@@ -19,6 +21,7 @@ import { DashboardService } from './services/dashboard.service';
     MatProgressSpinnerModule,
     RuntimeTableComponent,
     JobsInfoComponent,
+    IxcCxInfoComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss', '../../admin.component.scss'],
@@ -26,6 +29,8 @@ import { DashboardService } from './services/dashboard.service';
 export class DashboardComponent implements OnInit {
   runtime$: Observable<RuntimeInterface[]> | undefined;
   jobsInfo$: Observable<JobsInfoInterface> | undefined;
+  indeCX$: Observable<SystemInfoInterface> | undefined;
+  ixc$: Observable<SystemInfoInterface> | undefined;
 
   constructor(
     @SkipSelf() private snackBar: MatSnackBar,
@@ -35,6 +40,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getRuntime();
     this.getJobsInfo();
+    this.getIndeCX();
+    this.getIxc();
   }
 
   private getRuntime(): void {
@@ -51,6 +58,32 @@ export class DashboardComponent implements OnInit {
       catchError((_error) => {
         this.showSnackBar('Erro ao carregar informações do JOB.');
         return of({ status: undefined, lastRun: undefined, dataTable: [] });
+      })
+    );
+  }
+
+  private getIndeCX(): void {
+    this.indeCX$ = this.service.getIndeCX().pipe(
+      catchError((_error) => {
+        this.showSnackBar('Erro ao carregar informações do IndeCX.');
+        return of({
+          status: undefined,
+          lastRun: undefined,
+          numberErrors: undefined,
+        });
+      })
+    );
+  }
+
+  private getIxc(): void {
+    this.ixc$ = this.service.getIxc().pipe(
+      catchError((_error) => {
+        this.showSnackBar('Erro ao carregar informações do IXC.');
+        return of({
+          status: undefined,
+          lastRun: undefined,
+          numberErrors: undefined,
+        });
       })
     );
   }
