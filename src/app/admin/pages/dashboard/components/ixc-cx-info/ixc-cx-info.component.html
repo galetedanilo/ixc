@@ -6,11 +6,7 @@
   <div class="section-ixc-cx-info_container">
     <div class="section-ixc-cx-info__container__content">
       <h4>Ultima exe. com sucesso:</h4>
-      <span>{{ data.lastRun }}</span>
-    </div>
-    <div class="section-ixc-cx-info__container__content">
-      <h4>Qunatidade de erros:</h4>
-      <span>{{ data.numberErrors }}</span>
+      <span>{{ data.lastRun | date:"dd/MM/yyyy HH:mm"}}</span>
     </div>
   </div>
 </section>

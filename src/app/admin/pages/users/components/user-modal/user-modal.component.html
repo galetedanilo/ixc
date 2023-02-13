@@ -21,23 +21,23 @@
     </div>
 
     <div class="form-control">
-      <label for="displayName">Nome do usuário</label>
+      <label for="userName">Nome do usuário</label>
       <div class="form-control__input">
         <input
           type="text"
-          id="displayName"
-          name="displayName"
+          id="userName"
+          name="userName"
           autocomplete="off"
-          formControlName="displayName"
+          formControlName="userName"
         />
         <mat-icon>person</mat-icon>
       </div>
       <mat-error
         *ngIf="
-          form.get('displayName')?.dirty && form.get('displayName')?.invalid
+          form.get('userName')?.dirty && form.get('userName')?.invalid
         "
       >
-        {{ getErrorMessage("displayName") }}
+        {{ getErrorMessage("userName") }}
       </mat-error>
     </div>
   </form>

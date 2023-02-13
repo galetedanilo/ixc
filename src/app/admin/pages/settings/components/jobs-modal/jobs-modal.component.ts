@@ -21,7 +21,7 @@ import { MatterModalComponent } from '../matter-modal/matter-modal.component';
 })
 export class JobsModalComponent {
   form = new FormGroup({
-    runtime: new FormControl('', [
+    executionInterval: new FormControl('', [
       Validators.required,
       Validators.maxLength(4),
       Validators.max(9999),

@@ -1,13 +1,13 @@
 <mat-table [dataSource]="dataTable">
-  <ng-container matColumnDef="matter">
+  <ng-container matColumnDef="ixcSubject">
     <mat-header-cell *matHeaderCellDef>Assunto (IXC)</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.matter }}</mat-cell>
+    <mat-cell *matCellDef="let data">{{ data.ixcSubject }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="matterId">
+  <ng-container matColumnDef="indecxAction">
     <mat-header-cell *matHeaderCellDef>Id Ação (IndeCX)</mat-header-cell>
     <mat-cell *matCellDef="let data">
-      {{ data.matterId }}
+      {{ data.indecxAction }}
     </mat-cell>
   </ng-container>
 

@@ -82,7 +82,7 @@ export class AuthenticationComponent implements OnInit {
 
   private showErrorMessage(code: number) {
     switch (code) {
-      case HttpStatusCode.Forbidden:
+      case HttpStatusCode.BadRequest:
         this.onError('Usuário ou senha inválidas');
         break;
 

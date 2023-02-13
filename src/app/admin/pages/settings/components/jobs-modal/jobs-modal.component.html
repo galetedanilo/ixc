@@ -8,16 +8,16 @@
       <div class="form-control__input">
         <input
           type="number"
-          id="runtime"
-          name="runtime"
+          id="executionInterval"
+          name="executionInterval"
           autocomplete="off"
           placeholder="Informe o tempo em minutos"
-          formControlName="runtime"
+          formControlName="executionInterval"
         />
         <mat-icon>schedule</mat-icon>
       </div>
-      <mat-error *ngIf="form.get('runtime')?.dirty && form.get('runtime')?.invalid">
-        {{ getErrorMessage("runtime") }}
+      <mat-error *ngIf="form.get('executionInterval')?.dirty && form.get('executionInterval')?.invalid">
+        {{ getErrorMessage("executionInterval") }}
       </mat-error>
     </div>
   </form>

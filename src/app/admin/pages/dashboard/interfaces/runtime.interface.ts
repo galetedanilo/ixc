@@ -1,9 +1,8 @@
 export interface RuntimeInterface {
-  date: Date;
-  time: Date;
-  matter: string;
-  matterId: string;
-  email: string;
+  createAt: Date;
+  subject: string;
+  researchId: string;
+  customerName: string;
   isManual: boolean;
-  displayName: string;
+  userName: string;
 }

@@ -17,7 +17,7 @@ export class UsersTableComponent {
   @Output() edit = new EventEmitter();
   @Output() remove = new EventEmitter();
 
-  readonly displayedColumns = ['email', 'displayName', 'actions'];
+  readonly displayedColumns = ['email', 'userName', 'actions'];
 
   constructor() {}
 

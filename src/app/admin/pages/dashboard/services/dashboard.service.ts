@@ -17,27 +17,27 @@ export class DashboardService {
   constructor(private httpClient: HttpClient) {}
 
   getRuntime(): Observable<RuntimeInterface[]> {
-    return this.httpClient.get<RuntimeInterface[]>(this.URL).pipe(first());
+    return this.httpClient.get<RuntimeInterface[]>(`${this.API}/integration/executionLog`).pipe(first());
   }
 
   getIndeCX(): Observable<SystemInfoInterface> {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .get<SystemInfoInterface>(`${this.API}/indeCXInfo`)
+      .get<SystemInfoInterface>(`${this.API}/integration/executionLog/system`)
       .pipe(first());
   }
 
   getIxc(): Observable<SystemInfoInterface> {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .get<SystemInfoInterface>(`${this.API}/indeIxcInfo`)
+      .get<SystemInfoInterface>(`${this.API}/integration/executionLog/system`)
       .pipe(first());
   }
 
   getJobsInfo(): Observable<JobsInfoInterface> {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .get<JobsInfoInterface>(`${this.API}/jobsinfo`)
+      .get<JobsInfoInterface>(`${this.API}/integration/executionLog/job`)
       .pipe(first());
   }
 }

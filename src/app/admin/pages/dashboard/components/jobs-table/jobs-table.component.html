@@ -1,12 +1,12 @@
 <mat-table [dataSource]="dataTable">
   <ng-container matColumnDef="date">
     <mat-header-cell *matHeaderCellDef>Data de execução</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.date }}</mat-cell>
+    <mat-cell *matCellDef="let data">{{ data.date | date:"dd/MM/yyyy" }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="time">
     <mat-header-cell *matHeaderCellDef>Horário de execução</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.time }}</mat-cell>
+    <mat-cell *matCellDef="let data">{{ data.time | date:"HH:mm"}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="amount">

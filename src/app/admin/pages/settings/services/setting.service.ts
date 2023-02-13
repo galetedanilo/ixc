@@ -11,51 +11,47 @@ import { StatusInfoInterface } from '../interfaces/status-info.interface';
 @Injectable()
 export class SettingService {
   private readonly API = environment.API;
-  private readonly resource = '/settings';
+  private readonly resource = '/configurations';
 
   private readonly URL = this.API + this.resource;
 
   constructor(private httpClient: HttpClient) {}
 
   getMetters(): Observable<MatterInterface[]> {
-    return this.httpClient.get<MatterInterface[]>(this.URL).pipe(first());
+    return this.httpClient.get<MatterInterface[]>(`${this.URL}/subjectRelation`).pipe(first());
   }
 
   getStatusInfo(): Observable<StatusInfoInterface> {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .get<StatusInfoInterface>(`${this.API}/status`)
+      .get<StatusInfoInterface>(`${this.URL}/systemStatus`)
       .pipe(first());
   }
 
   getJobsInfo(): Observable<JobsInfoInterface> {
     //ToDo: colocar a URL correta
     return this.httpClient
-      .get<JobsInfoInterface>(`${this.API}/runtime`)
-      .pipe(first());
-  }
-
-  getIndeCX(): Observable<IndeCXInterface[]> {
-    //ToDo: colocar a URL correta
-    return this.httpClient
-      .get<IndeCXInterface[]>(`${this.API}/indeCX`)
+      .get<JobsInfoInterface>(`${this.URL}/jobconfiguration`)
       .pipe(first());
   }
 
   saveMatter(record: Partial<MatterInterface>) {
     return this.httpClient
-      .post<MatterInterface>(this.URL, record)
+      .post<MatterInterface>(`${this.URL}/subjectRelation`, record)
       .pipe(first());
   }
 
   saveJobsInfo(record: Partial<JobsInfoInterface>) {
-    //ToDo: colocar a URL correta
     return this.httpClient
-      .post<JobsInfoInterface>(`${this.API}/runtime`, record)
+      .put<JobsInfoInterface>(`${this.URL}/jobconfiguration`, record)
       .pipe(first());
   }
 
   deleteMatter(id: string) {
-    return this.httpClient.delete(`${this.URL}/${id}`).pipe(first());
+    return this.httpClient.delete(`${this.URL}/subjectRelation/${id}`).pipe(first());
+  }
+
+  executeJob() {
+    return this.httpClient.post(`${this.API}/integration/sendResearchToCustomers`, {}).pipe(first());
   }
 }
