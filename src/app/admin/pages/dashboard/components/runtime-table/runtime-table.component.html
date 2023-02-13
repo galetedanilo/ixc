@@ -1,29 +1,24 @@
 <h3>Ultimas execuções</h3>
 <mat-table [dataSource]="dataTable">
-  <ng-container matColumnDef="date">
+  <ng-container matColumnDef="createAt">
     <mat-header-cell *matHeaderCellDef>Data</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.date }}</mat-cell>
+    <mat-cell *matCellDef="let data">{{ data.createAt | date:"dd/MM/yyyy HH:mm" }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="time">
-    <mat-header-cell *matHeaderCellDef>Horário</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.time }}</mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="matter">
+  <ng-container matColumnDef="subject">
     <mat-header-cell *matHeaderCellDef>Assunto</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.matter }}</mat-cell>
+    <mat-cell *matCellDef="let data">{{ data.subject }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="email">
+  <ng-container matColumnDef="customerName">
     <mat-header-cell *matHeaderCellDef>Usuário</mat-header-cell>
-    <mat-cell *matCellDef="let data">{{ data.email }}</mat-cell>
+    <mat-cell *matCellDef="let data">{{ data.customerName }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="matterId">
+  <ng-container matColumnDef="researchId">
     <mat-header-cell *matHeaderCellDef>ID IndeCX</mat-header-cell>
     <mat-cell *matCellDef="let data">
-      {{ data.matterId }}
+      {{ data.researchId }}
     </mat-cell>
   </ng-container>
 
@@ -34,10 +29,10 @@
     </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="displayName">
+  <ng-container matColumnDef="userName">
     <mat-header-cell *matHeaderCellDef>Dispardo por</mat-header-cell>
     <mat-cell *matCellDef="let data">
-      {{ data.displayName }}
+      {{ data.userName }}
     </mat-cell>
   </ng-container>
   

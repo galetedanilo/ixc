@@ -1,4 +1,4 @@
 export interface JobsInfoInterface {
-  runtime: number | undefined;
+  executionInterval: number | undefined;
   lastRun: Date | undefined;
 }

@@ -6,22 +6,18 @@
     <div class="form-control">
       <label for="email">Id ação(IndeCX)</label>
       <div class="form-control__input">
-        <select
-          id="matterId"
-          name="matterId"
+        <input
+          id="indecxAction"
+          name="indecxAction"
           autocomplete="off"
-          formControlName="matterId"
-        >
-          <option *ngFor="let indeCX of data" [ngValue]="indeCX.name">
-            {{ indeCX.name }}
-          </option>
-        </select>
+          formControlName="indecxAction"
+           />
         <mat-icon>key</mat-icon>
       </div>
       <mat-error
-        *ngIf="form.get('matterId')?.dirty && form.get('matterId')?.invalid"
+        *ngIf="form.get('indecxAction')?.dirty && form.get('indecxAction')?.invalid"
       >
-        {{ getErrorMessage("matterId") }}
+        {{ getErrorMessage("indecxAction") }}
       </mat-error>
     </div>
     <div class="form-control">
@@ -29,17 +25,17 @@
       <div class="form-control__input">
         <input
           type="text"
-          id="matter"
-          name="matter"
+          id="ixcSubject"
+          name="ixcSubject"
           autocomplete="off"
-          formControlName="matter"
+          formControlName="ixcSubject"
         />
         <mat-icon>notes</mat-icon>
       </div>
       <mat-error
-        *ngIf="form.get('matter')?.dirty && form.get('matter')?.invalid"
+        *ngIf="form.get('ixcSubject')?.dirty && form.get('ixcSubject')?.invalid"
       >
-        {{ getErrorMessage("matter") }}
+        {{ getErrorMessage("ixcSubject") }}
       </mat-error>
     </div>
   </form>

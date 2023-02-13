@@ -31,7 +31,7 @@ export class UserModalComponent implements OnInit {
         Validators.maxLength(40),
       ],
     ],
-    displayName: [
+    userName: [
       '',
       [Validators.required, Validators.minLength(5), Validators.maxLength(40)],
     ],

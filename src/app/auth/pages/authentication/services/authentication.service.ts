@@ -9,7 +9,7 @@ import { AuthenticationInterface } from '../interfaces/authentication.interface'
 @Injectable()
 export class AuthenticationService {
   private readonly API = environment.API;
-  private readonly resource = '/auth/authentication';
+  private readonly resource = '/login';
 
   private readonly URL = this.API + this.resource;
 

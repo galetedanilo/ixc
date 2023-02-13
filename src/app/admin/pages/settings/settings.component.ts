@@ -49,7 +49,6 @@ export class SettingsComponent {
     this.getMetters();
     this.getStatusInfo();
     this.getJobsInfo();
-    this.getIndeCX();
   }
 
   handleMatterModal(): void {
@@ -114,22 +113,11 @@ export class SettingsComponent {
       catchError((_error) => {
         this.showSnackBar('Erro a carregar as configurações do job.');
         return of({
-          runtime: undefined,
+          executionInterval: undefined,
           lastRun: undefined,
         });
       })
     );
-  }
-
-  private getIndeCX(): void {
-    this.service.getIndeCX().subscribe({
-      next: (data: IndeCXInterface[]) => {
-        this.indeCX = data;
-      },
-      error: () => {
-        this.showSnackBar('Erro ao carregar IndeCX.');
-      },
-    });
   }
 
   private saveMatter(data: MatterInterface): void {

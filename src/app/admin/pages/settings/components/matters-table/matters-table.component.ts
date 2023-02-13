@@ -15,7 +15,7 @@ export class MattersTableComponent {
   @Input() dataTable: MatterInterface[] = [];
   @Output() remove = new EventEmitter();
 
-  readonly displayedColumns = ['matter', 'matterId', 'actions'];
+  readonly displayedColumns = ['ixcSubject', 'indecxAction', 'actions'];
 
   handleRemove(data: MatterInterface): void {
     this.remove.emit(data);

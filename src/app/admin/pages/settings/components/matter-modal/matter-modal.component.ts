@@ -22,8 +22,8 @@ import { IndeCXInterface } from '../../interfaces/inde-cx.interface';
 export class MatterModalComponent {
   form = this.builder.group({
     id: [''],
-    matter: ['', [Validators.required]],
-    matterId: ['', [Validators.required, Validators.maxLength(40)]],
+    ixcSubject: ['', [Validators.required]],
+    indecxAction: ['', [Validators.required, Validators.maxLength(40)]],
   });
 
   constructor(

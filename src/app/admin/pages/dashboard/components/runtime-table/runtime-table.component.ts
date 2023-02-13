@@ -16,12 +16,11 @@ export class RuntimeTableComponent {
   @Input() dataTable: RuntimeInterface[] = [];
 
   readonly displayedColumns = [
-    'date',
-    'time',
-    'matter',
-    'email',
-    'matterId',
+    'createAt',
+    'subject',
+    'customerName',
+    'researchId',
     'isManual',
-    'displayName',
+    'userName',
   ];
 }
