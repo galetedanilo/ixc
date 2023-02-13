@@ -33,6 +33,10 @@ export class StorageService {
   }
 
   isLoggedIn(): boolean {
-    return this.isLogged.getValue();
+    if(window.sessionStorage.getItem(USER_KEY)) {
+      return true;
+    }
+
+    return false;
   }
 }
