@@ -35,6 +35,10 @@ export class UserModalComponent implements OnInit {
       '',
       [Validators.required, Validators.minLength(5), Validators.maxLength(40)],
     ],
+    password: [
+      '',
+      [Validators.required, Validators.minLength(5), Validators.maxLength(20)],
+    ],
   });
 
   constructor(

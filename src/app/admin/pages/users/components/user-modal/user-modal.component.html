@@ -24,7 +24,7 @@
       <label for="userName">Nome do usuário</label>
       <div class="form-control__input">
         <input
-          type="text"
+          type="password"
           id="userName"
           name="userName"
           autocomplete="off"
@@ -38,6 +38,27 @@
         "
       >
         {{ getErrorMessage("userName") }}
+      </mat-error>
+    </div>
+
+    <div class="form-control">
+      <label for="password">Senha do usuário</label>
+      <div class="form-control__input">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="off"
+          formControlName="password"
+        />
+        <mat-icon>lock</mat-icon>
+      </div>
+      <mat-error
+        *ngIf="
+          form.get('password')?.dirty && form.get('password')?.invalid
+        "
+      >
+        {{ getErrorMessage("password") }}
       </mat-error>
     </div>
   </form>
