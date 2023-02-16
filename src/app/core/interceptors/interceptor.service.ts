@@ -34,7 +34,7 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       tap({
         error: (httpError: HttpErrorResponse) => {
-          if (httpError.status === HttpStatusCode.Forbidden) {
+          if (httpError.status === HttpStatusCode.Unauthorized) {
             this.storageService.clear();
             this.router.navigate(['auth', 'authentication']);
           }
