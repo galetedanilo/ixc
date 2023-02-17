@@ -31,7 +31,7 @@ export class UsersService {
   }
 
   private create(record: Partial<UserInterface>) {
-    return this.httpClient.post<UserInterface>(this.URL, record).pipe(first());
+    return this.httpClient.post<UserInterface>(`${this.URL}/createNewUser`, record).pipe(first());
   }
 
   private update(record: Partial<UserInterface>) {
