@@ -4,6 +4,7 @@ import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angula
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { getErrorMessage } from 'src/app/shared/helpers/field-error-mesage.helper';
 
 import { UserInterface } from '../../interfaces/user.interface';
@@ -16,8 +17,10 @@ import { UserInterface } from '../../interfaces/user.interface';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatIconModule,
+    MatSlideToggleModule,
   ],
   templateUrl: './user-modal.component.html',
+  styles: [],
 })
 export class UserModalComponent implements OnInit {
   form = this.builder.group({
@@ -39,6 +42,7 @@ export class UserModalComponent implements OnInit {
       '',
       [Validators.required, Validators.minLength(5), Validators.maxLength(20)],
     ],
+    isAdmin: [false],
   });
 
   constructor(

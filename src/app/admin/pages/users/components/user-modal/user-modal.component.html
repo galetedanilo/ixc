@@ -33,9 +33,7 @@
         <mat-icon>person</mat-icon>
       </div>
       <mat-error
-        *ngIf="
-          form.get('userName')?.dirty && form.get('userName')?.invalid
-        "
+        *ngIf="form.get('userName')?.dirty && form.get('userName')?.invalid"
       >
         {{ getErrorMessage("userName") }}
       </mat-error>
@@ -54,12 +52,15 @@
         <mat-icon>lock</mat-icon>
       </div>
       <mat-error
-        *ngIf="
-          form.get('password')?.dirty && form.get('password')?.invalid
-        "
+        *ngIf="form.get('password')?.dirty && form.get('password')?.invalid"
       >
         {{ getErrorMessage("password") }}
       </mat-error>
+    </div>
+    <div class="form-control">
+      <div class="form-control__input">
+        <mat-slide-toggle formControlName="isAdmin">Sou administrador</mat-slide-toggle>
+      </div>
     </div>
   </form>
 </section>

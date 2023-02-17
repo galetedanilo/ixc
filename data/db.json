@@ -1,19 +1,25 @@
 {
-  "users": [
+  "user": [
     {
       "id": 3,
       "email": "teste@tre.com",
-      "displayName": "Teste Novo Nome"
+      "userName": "Teste Novo Nome",
+      "password": "123456",
+      "isAdmin": false
     },
     {
       "id": 4,
       "email": "mariaaparecida@gmail.com",
-      "displayName": "Maria Aparecida"
+      "userName": "Maria Aparecida",
+      "password": "123456",
+      "isAdmin": false
     },
     {
       "id": 5,
       "email": "marcia@gmail.com",
-      "displayName": "Marcia Silva"
+      "userName": "Marcia Silva",
+      "password": "123456",
+      "isAdmin": false
     }
   ],
   "settings": [

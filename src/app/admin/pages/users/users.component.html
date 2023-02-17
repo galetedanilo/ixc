@@ -6,7 +6,15 @@
   <h3>Cadastro dos usuários</h3>
   <button
     class="btn"
-    (click)="handleOpenModal({ id: '', email: '', userName: '', password: ''})"
+    (click)="
+      handleOpenModal({
+        id: '',
+        email: '',
+        userName: '',
+        password: '',
+        isAdmin: false
+      })
+    "
   >
     Adicionar
   </button>

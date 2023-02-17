@@ -38,7 +38,7 @@ export const getErrorMessage = (field: AbstractControl<any | any> | null) => {
   }
 
   if (field?.hasError('match')) {
-    return 'As senhas não são iguais';
+    return 'Nova senha e senha de confirmação não são iguais';
   }
 
   if (field?.hasError('pattern')) {
