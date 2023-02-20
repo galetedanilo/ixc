@@ -3,6 +3,7 @@ import { Component, EventEmitter, Output, SkipSelf } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { StorageService } from 'src/app/core/storege/storage.service';
 import { getErrorMessage } from 'src/app/shared/helpers/field-error-mesage.helper';
 
 import { passwordMatchValidator } from '../../helper/password-match.validator';
@@ -44,7 +45,10 @@ export class PasswordFormComponent {
     ),
   });
 
-  constructor(@SkipSelf() private builder: NonNullableFormBuilder) {}
+  constructor(
+    @SkipSelf() private builder: NonNullableFormBuilder,
+    @SkipSelf() private storageService: StorageService
+    ) {}
 
   getErrorMessage(fieldName: string): string {
     const field = this.form.get(fieldName);
@@ -53,7 +57,9 @@ export class PasswordFormComponent {
   }
 
   handleSave(): void {
+    const user = this.storageService.getUser();
     const passwordReset: ChangePasswordInterface = {
+      id: user.user.id,
       oldPassword: this.form.get('oldPassword')!.value,
       newPassword: this.form.get('passwordGroup.password')!.value,
     };
