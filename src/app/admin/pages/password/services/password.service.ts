@@ -10,13 +10,13 @@ import { ChangePasswordInterface } from '../interfaces/change-password.interface
 })
 export class PasswordService {
   private readonly API = environment.API;
-  private readonly resource = '/resetpassword';
+  private readonly resource = '/user';
 
   private readonly URL = this.API + this.resource;
 
   constructor(private httpClient: HttpClient) {}
 
   changePassword(record: Partial<ChangePasswordInterface>) {
-    return this.httpClient.post<void>(this.URL, record).pipe(first());
+    return this.httpClient.put<void>(`${this.URL}/${record.id}/password`, record).pipe(first());
   }
 }
